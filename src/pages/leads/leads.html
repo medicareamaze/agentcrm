@@ -1,0 +1,47 @@
+<!--<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Leads
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+</ion-content>-->
+<ion-header>
+  <ion-navbar >
+    <ion-title>
+      Leads
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only class="add-lead-button">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+      <button ion-button icon-only class="options-button">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="lead-page-content">
+  <ion-list class="leads">
+    <ion-item-sliding *ngFor="let lead of leads | async">
+      <button ion-item class="lead" (click)="showMessages(lead)">
+        <img class="lead-picture" [src]="picture">
+        <div class="lead-right">
+          <h2>{{lead.name}}</h2>
+          <h2 >{{lead.phone}}</h2>
+          <!--<span *ngIf="lead.lastMessage" class="last-message">
+            <p *ngIf="lead.lastMessage.type == 'text'" class="last-message-content last-message-content-text">{{lead.lastMessage.content}}</p>
+            <span class="last-message-timestamp">{{lead.lastMessage.createdAt }}</span>
+          </span>-->
+        </div>
+        </button>
+        <ion-item-options class="lead-options">
+          <button ion-button color="danger" class="option option-remove">Remove</button>
+        </ion-item-options>
+      </ion-item-sliding>
+  </ion-list>
+</ion-content>

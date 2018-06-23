@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
+import { LeadsPage } from '../pages/leads/leads';
+import { LeadNotesPage } from '../pages/leadNotes/leadNotes';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -15,12 +16,14 @@ import { Login} from '../pages/login/login';
 import { Signup} from '../pages/signup/signup';
 import { HttpModule } from "@angular/http";
 import { AuthService } from '../providers/auth-service/auth-service';
+import { LeadsService } from "../providers/leads-service";
 
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
+    LeadsPage,
+    LeadNotesPage,
     ContactPage,
     HomePage,
     Welcome,
@@ -36,7 +39,8 @@ import { AuthService } from '../providers/auth-service/auth-service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
+    LeadsPage,
+    LeadNotesPage,
     ContactPage,
     HomePage,
     Welcome,
@@ -48,7 +52,8 @@ import { AuthService } from '../providers/auth-service/auth-service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService
+    AuthService,
+    LeadsService
   ]
 })
 export class AppModule {}
